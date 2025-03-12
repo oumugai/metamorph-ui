@@ -14,7 +14,14 @@ pnpm add @oumugai/metamorph-ui solid-js
 
 ## セットアップ
 
-使用例：
+使用方法：
+
+1. スタイルのインポート:
+```typescript
+import '@oumugai/metamorph-ui/styles';
+```
+
+2. コンポーネントの使用:
 ```typescript
 import { Button, Card, Input } from '@oumugai/metamorph-ui';
 
@@ -30,7 +37,7 @@ function App() {
 }
 ```
 
-スタイルは自動的にインポートされるため、個別のインポートは不要です。
+必ずスタイルをインポートしてください。コンポーネントのスタイルはグローバルCSSとして提供されます。
 
 3. テーマのカスタマイズ（オプション）：
 ```typescript
