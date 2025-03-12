@@ -28,10 +28,21 @@ export default defineConfig({
           'solid-js': 'Solid',
           'solid-js/web': 'SolidWeb',
         },
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name === 'style.css') return 'metamorph-ui.css';
+          return assetInfo.name;
+        },
       },
     },
     sourcemap: true,
     target: 'esnext',
+    cssCodeSplit: false,
+  },
+  css: {
+    modules: {
+      localsConvention: 'camelCase',
+      generateScopedName: '[name]_[local]_[hash:base64:5]'
+    }
   },
   resolve: {
     alias: {
