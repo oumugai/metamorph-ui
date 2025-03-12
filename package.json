@@ -1,6 +1,6 @@
 {
   "name": "@oumugai/metamorph-ui",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Modern UI framework for Solid.js with MetaMorph design pattern",
   "type": "module",
   "files": [
@@ -11,12 +11,17 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/metamorph-ui.js",
-      "require": "./dist/metamorph-ui.umd.cjs",
-      "types": "./dist/index.d.ts"
-    },
-    "./styles": {
-      "import": "./dist/style.css"
+      "import": {
+        "types": "./dist/index.d.ts",
+        "style": "./dist/metamorph-ui.css",
+        "default": "./dist/metamorph-ui.js"
+      },
+      "require": "./dist/metamorph-ui.umd.cjs"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "styles/*": ["./dist/styles/*"]
     }
   },
   "scripts": {

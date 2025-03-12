@@ -8,7 +8,7 @@ import './components/core/Chart/Chart.module.css';
 import './components/core/CircularProgress/CircularProgress.module.css';
 import './components/core/LineChart/LineChart.module.css';
 
-// Core Components
+// Export Core Components
 export * from './components/core/Button';
 export * from './components/core/Card';
 export * from './components/core/Input';

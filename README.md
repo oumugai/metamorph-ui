@@ -14,14 +14,39 @@ pnpm add @oumugai/metamorph-ui solid-js
 
 ## セットアップ
 
-1. CSSのインポート：
+使用例：
 ```typescript
-import 'metamorph-ui/styles';
+import { Button, Card, Input } from '@oumugai/metamorph-ui';
+
+function App() {
+  return (
+    <div>
+      <Card>
+        <Input placeholder="入力してください" />
+        <Button>送信</Button>
+      </Card>
+    </div>
+  );
+}
 ```
 
-2. コンポーネントのインポート：
+スタイルは自動的にインポートされるため、個別のインポートは不要です。
+
+3. テーマのカスタマイズ（オプション）：
 ```typescript
-import { Card, Input, Button } from 'metamorph-ui';
+import { variables, createCssVariables } from '@oumugai/metamorph-ui';
+
+// テーマ変数のカスタマイズ
+const customTheme = {
+  ...variables,
+  colors: {
+    ...variables.colors,
+    primary: '#your-primary-color',
+  },
+};
+
+// カスタムテーマの適用
+createCssVariables(customTheme);
 ```
 
 ## コンポーネント

@@ -29,14 +29,16 @@ export default defineConfig({
           'solid-js/web': 'SolidWeb',
         },
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name === 'style.css') return 'metamorph-ui.css';
+          if (assetInfo.name === 'style.css' || assetInfo.name === 'index.css')
+            return 'metamorph-ui.css';
           return assetInfo.name;
         },
       },
     },
     sourcemap: true,
     target: 'esnext',
-    cssCodeSplit: false,
+    cssCodeSplit: true,
+    assetsInlineLimit: 4096,
   },
   css: {
     modules: {
