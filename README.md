@@ -5,11 +5,11 @@ MetaMorph UIは、Solid.jsのためのモダンなUIコンポーネントライ�
 ## インストール
 
 ```bash
-npm install metamorph-ui solid-js
+npm install @oumugai/metamorph-ui solid-js
 # または
-yarn add metamorph-ui solid-js
+yarn add @oumugai/metamorph-ui solid-js
 # または
-pnpm add metamorph-ui solid-js
+pnpm add @oumugai/metamorph-ui solid-js
 ```
 
 ## セットアップ
