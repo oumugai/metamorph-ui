@@ -1,3 +1,6 @@
+// Global Styles
+import './index.css';
+
 // Core Components
 export * from './components/core/Button';
 export * from './components/core/Card';
@@ -6,7 +9,6 @@ export * from './components/core/Chart';
 export * from './components/core/Form';
 export * from './components/core/CircularProgress';
 export * from './components/core/LineChart';
-
 
 // Hooks
 export {
@@ -41,21 +43,20 @@ export {
   type AnimationKey
 };
 
-// Initialize the theme system
-const themeInit = () => {
-  const cleanupVariables = createCssVariables();
-  const cleanupAnimations = initializeAnimations();
-
-  return () => {
-    cleanupVariables();
-    cleanupAnimations();
-  };
-};
-
-// Initialize theme system
-export const initialize = themeInit();
+// Auto-initialize the theme system
+const cleanupVariables = createCssVariables();
+const cleanupAnimations = initializeAnimations();
 
 // Cleanup when hot module reloaded
 if (import.meta.hot) {
-  import.meta.hot.dispose(initialize);
+  import.meta.hot.dispose(() => {
+    cleanupVariables();
+    cleanupAnimations();
+  });
 }
+
+// Export cleanup function for manual control if needed
+export const cleanup = () => {
+  cleanupVariables();
+  cleanupAnimations();
+};
