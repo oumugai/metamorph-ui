@@ -1,6 +1,6 @@
 {
   "name": "@oumugai/metamorph-ui",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Modern UI framework for Solid.js with MetaMorph design pattern",
   "type": "module",
   "files": [

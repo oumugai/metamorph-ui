@@ -1,6 +1,6 @@
 import { Component, JSX, createSignal } from 'solid-js';
-import { withStyles } from '../../../utils/withStyles';
-import styles from './Button.module.css';
+import { useStyles } from '../../../hooks/useStyles';
+import moduleStyles from './Button.module.css';
 
 interface ButtonProps {
   children: JSX.Element;
@@ -13,7 +13,8 @@ interface ButtonProps {
   style?: JSX.CSSProperties;
 }
 
-const ButtonBase: Component<ButtonProps> = (props) => {
+export const Button: Component<ButtonProps> = (props) => {
+  const styles = useStyles(moduleStyles);
   const [buttonRef, setButtonRef] = createSignal<HTMLButtonElement>();
 
   const handleClick: JSX.EventHandler<HTMLButtonElement, MouseEvent> = (event) => {
@@ -56,5 +57,5 @@ const ButtonBase: Component<ButtonProps> = (props) => {
   );
 };
 
-// スタイルを統合したコンポーネントをエクスポート
-export const Button = withStyles(ButtonBase, styles);
+// 既にコンポーネントは直接エクスポートされているため、
+// この行は不要になります

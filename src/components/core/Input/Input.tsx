@@ -1,5 +1,6 @@
 import { Component, JSX, createSignal } from 'solid-js';
-import styles from './Input.module.css';
+import { useStyles } from '../../../hooks/useStyles';
+import moduleStyles from './Input.module.css';
 
 type InputEventHandler = JSX.EventHandler<HTMLInputElement, FocusEvent>;
 
@@ -22,6 +23,7 @@ export interface InputProps {
 }
 
 export const Input: Component<InputProps> = (props) => {
+  const styles = useStyles(moduleStyles);
   const [isHovered, setIsHovered] = createSignal(false);
   const [isFocused, setIsFocused] = createSignal(false);
   const [transform, setTransform] = createSignal('translateY(0)');

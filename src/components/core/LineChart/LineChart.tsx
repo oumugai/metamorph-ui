@@ -1,5 +1,6 @@
 import { Component, createSignal, createEffect, onCleanup, For } from 'solid-js';
-import styles from './LineChart.module.css';
+import { useStyles } from '../../../hooks/useStyles';
+import moduleStyles from './LineChart.module.css';
 import { animations } from '../../../styles/animations';
 
 export interface DataPoint {
@@ -20,6 +21,7 @@ export interface LineChartProps {
 }
 
 export const LineChart: Component<LineChartProps> = (props) => {
+  const styles = useStyles(moduleStyles);
   const [activePoint, setActivePoint] = createSignal<number | null>(null);
   const [containerRef, setContainerRef] = createSignal<HTMLDivElement>();
   const [size, setSize] = createSignal({ width: 800, height: 400 });

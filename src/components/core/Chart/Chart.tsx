@@ -1,5 +1,6 @@
 import { Component, createSignal, For, createEffect, onCleanup } from 'solid-js';
-import styles from './Chart.module.css';
+import { useStyles } from '../../../hooks/useStyles';
+import moduleStyles from './Chart.module.css';
 import { animations } from '../../../styles/animations';
 
 export interface ChartDataPoint {
@@ -20,6 +21,7 @@ export interface ChartProps {
 }
 
 export const Chart: Component<ChartProps> = (props) => {
+  const styles = useStyles(moduleStyles);
   const [chartData, setChartData] = createSignal(props.data);
   const [containerRef, setContainerRef] = createSignal<HTMLDivElement>();
   const [size, setSize] = createSignal({ width: 0, height: 0 });

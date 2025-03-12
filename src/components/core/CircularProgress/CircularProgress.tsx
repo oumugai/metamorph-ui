@@ -1,5 +1,6 @@
 import { Component, createEffect, createSignal, onCleanup } from 'solid-js';
-import styles from './CircularProgress.module.css';
+import { useStyles } from '../../../hooks/useStyles';
+import moduleStyles from './CircularProgress.module.css';
 import { animations } from '../../../styles/animations';
 
 export interface CircularProgressProps {
@@ -14,6 +15,7 @@ export interface CircularProgressProps {
 }
 
 export const CircularProgress: Component<CircularProgressProps> = (props) => {
+  const styles = useStyles(moduleStyles);
   const [containerRef, setContainerRef] = createSignal<HTMLDivElement>();
   const [calculatedSize, setCalculatedSize] = createSignal(120);
   const [animationState, setAnimationState] = createSignal<'enter' | 'update' | 'none'>('enter');

@@ -1,5 +1,6 @@
 import { Component, JSX, onCleanup } from 'solid-js';
-import styles from './Card.module.css';
+import { useStyles } from '../../../hooks/useStyles';
+import moduleStyles from './Card.module.css';
 
 export interface CardProps {
   children: JSX.Element;
@@ -10,7 +11,9 @@ export interface CardProps {
   style?: { [key: string]: string | number };
 }
 
-export const Card: Component<CardProps> = ({ tilt = true, ...props }) => {
+export const Card: Component<CardProps> = (props) => {
+  const styles = useStyles(moduleStyles);
+  const tilt = props.tilt ?? true;
   let cardRef: HTMLDivElement | undefined;
   let requestId: number;
   let resizeObserver: ResizeObserver;
