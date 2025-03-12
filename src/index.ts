@@ -1,12 +1,5 @@
-// Import all styles
+// Only import global styles
 import './index.css';
-import './components/core/Button/Button.module.css';
-import './components/core/Card/Card.module.css';
-import './components/core/Input/Input.module.css';
-import './components/core/Form/Form.module.css';
-import './components/core/Chart/Chart.module.css';
-import './components/core/CircularProgress/CircularProgress.module.css';
-import './components/core/LineChart/LineChart.module.css';
 
 // Export Core Components
 export * from './components/core/Button';

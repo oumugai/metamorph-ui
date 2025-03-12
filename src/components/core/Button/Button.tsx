@@ -1,7 +1,8 @@
 import { Component, JSX, createSignal } from 'solid-js';
+import { withStyles } from '../../../utils/withStyles';
 import styles from './Button.module.css';
 
-export interface ButtonProps {
+interface ButtonProps {
   children: JSX.Element;
   variant?: 'primary' | 'secondary' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
@@ -12,7 +13,7 @@ export interface ButtonProps {
   style?: JSX.CSSProperties;
 }
 
-export const Button: Component<ButtonProps> = (props) => {
+const ButtonBase: Component<ButtonProps> = (props) => {
   const [buttonRef, setButtonRef] = createSignal<HTMLButtonElement>();
 
   const handleClick: JSX.EventHandler<HTMLButtonElement, MouseEvent> = (event) => {
@@ -54,3 +55,6 @@ export const Button: Component<ButtonProps> = (props) => {
     </button>
   );
 };
+
+// スタイルを統合したコンポーネントをエクスポート
+export const Button = withStyles(ButtonBase, styles);
