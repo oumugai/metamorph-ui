@@ -1,0 +1,112 @@
+.card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  background: var(--card-bg-light);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  box-shadow: 
+    15px 15px 30px rgba(0, 0, 0, 0.15),
+    -15px -15px 30px rgba(255, 255, 255, 0.8),
+    inset 5px 5px 10px rgba(255, 255, 255, 0.5),
+    inset -5px -5px 10px rgba(0, 0, 0, 0.05);
+  will-change: transform, box-shadow;
+}
+
+:global(.dark-mode) .card {
+  background: var(--card-bg-dark);
+  box-shadow: 
+    15px 15px 30px rgba(0, 0, 0, 0.3),
+    -15px -15px 30px rgba(40, 40, 40, 0.2),
+    inset 5px 5px 10px rgba(60, 60, 60, 0.2),
+    inset -5px -5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Base interactive styles */
+.interactive {
+  transition: transform 0.15s cubic-bezier(0.4, 0.0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.interactive:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow:
+    20px 20px 40px rgba(0, 0, 0, 0.2),
+    -20px -20px 40px rgba(255, 255, 255, 0.9),
+    inset 5px 5px 10px rgba(255, 255, 255, 0.5),
+    inset -5px -5px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* 3D tilt effect */
+.tilt {
+  will-change: transform;
+  transform-style: preserve-3d;
+  perspective: 1200px;
+}
+
+.interactive.tilt {
+  transform: perspective(1200px)
+             rotateX(var(--rotate-x, 0))
+             rotateY(var(--rotate-y, 0));
+}
+
+.interactive.tilt:hover {
+  transform: perspective(1200px)
+             translateY(-5px)
+             scale(1.02)
+             rotateX(var(--rotate-x, 0))
+             rotateY(var(--rotate-y, 0));
+}
+
+:global(.dark-mode) .interactive:hover {
+  box-shadow:
+    20px 20px 40px rgba(0, 0, 0, 0.4),
+    -20px -20px 40px rgba(40, 40, 40, 0.3),
+    inset 5px 5px 10px rgba(60, 60, 60, 0.2),
+    inset -5px -5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Card variants */
+.elevated {
+  background: var(--card-bg-light);
+}
+
+.outlined {
+  background: transparent;
+  border: 2px solid rgba(var(--color-primary-500-rgb), 0.2);
+  box-shadow: none;
+}
+
+.filled {
+  background: linear-gradient(135deg, 
+    rgba(var(--color-primary-500-rgb), 0.1),
+    rgba(var(--color-primary-900-rgb), 0.2)
+  );
+}
+
+:global(.dark-mode) .filled {
+  background: linear-gradient(135deg, 
+    rgba(var(--color-primary-500-rgb), 0.2),
+    rgba(var(--color-primary-900-rgb), 0.3)
+  );
+}
+
+/* Content styles */
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Card sizes */
+.sm {
+  padding: 1rem;
+}
+
+.md {
+  padding: 2rem;
+}
+
+.lg {
+  padding: 3rem;
+}
